@@ -1,0 +1,80 @@
+body {
+
+background-attachment: fixed;
+background-repeat: no-repeat;
+background-position: center center;
+}
+.container{
+	width: 150;
+	height: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    background-color: white;
+-webkit-box-shadow: 10px 20px 59px -10px rgba(240,17,62,1);
+-moz-box-shadow: 10px 20px 59px -10px rgba(240,17,62,1);
+box-shadow: 10px 20px 59px -10px rgba(240,17,62,1);
+}
+
+.vertical-menu {
+    width: 30%; /* Set a width if you like */
+    margin-left: 85%;
+}
+
+.vertical-menu a {
+    background-color: #CD5C5C; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 5px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+    border: 1px solid;
+margin: 1px 1px 1px 1px;
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+    background-color: #4CAF50; /* Add a green color to the "active/current" link */
+    color: white;
+}
+
+.principal{
+
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-top: 10%;
+
+}
+
+
+.concat
+
+{
+padding: 5px;
+
+
+	
+}
+
+@media (min-width: 1200px)
+{
+.container {
+    width: 75%;
+}}
+
+
+@media (max-width: 992px)
+{
+.container {
+    width: 75%;
+}
+
+.vertical-menu {
+    width: 100%; /* Set a width if you like */
+    margin-left: 0;
+}
+
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta chartser="UTF-8">
+<title>Tarea</title>
+<meta name="viewport" content="widt=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+
+
+</head>
+<body background="imagenes/fondo.jpg">
+	
+
+<div class="principal">
+<div class="col-md-4 col-sm-1"></div>
+
+<div class="col-md-4 col-sm-1">
+<div class="container">
+<form action="pagina.php" method="post" onSubmit="javascript: return validar();">
+<label >FORMULARIO DE CONTACTO</label>
+	<div class="form-group">
+		<label for="nombre">Nombre:</label>
+		<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre"  required>
+	</div>
+
+
+	<div class="form-group">
+		<label for="fecha_nac">Fecha de Nacimiento:</label>
+		<input type="date" class="form-control" id="fecha_nac" name="fecha_nac" placeholder="Fecha de Nacimiento" required>
+	</div>
+
+
+	<div class="form-group">
+		<label for="nivel">Nivel de educacion:</label>
+		<select class="form-control" id="nivel" name="nivel" required>
+			<option value="Ninguna">Ninguna</option>
+			<option value="Primaria">Primaria</option>
+			<option value="Secundaria">Secundaria</option>
+			<option value="Superior">Superior</option>
+			<option value="Profesional">Profesional</option>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label for="correo">Correo Electronico:</label>
+		<input type="text" class="form-control" id="correo" name="correo" placeholder="Correo Electronico" required>
+	</div>
+
+
+	<div class="form-group">
+		<label for="mensaje">Mensaje de Contacto:</label>
+		<textarea class="form-control" id="mensaje" name="mensaje" placeholder="Mensaje de Contacto" required></textarea>
+	</div>
+
+	<button class="btn-primary" id="Enviar">Enviar</button>
+	<br>
+	<br>
+</form>
+</div>
+</div>
+
+<div class="col-md-4 col-sm-1"></div>
+
+</div>
+
+<script src="js/jquery.js" ></script>
+<script src="js/bootstrap.min.js" ></script>
+<script type="text/javascript">
+
+/* validar que los campos no esten vacios */
+function validar(){
+	/* validar el nombre */
+if(document.getElementById('nombre').value == '' )
+{
+    alert("el campo nombre esta vacio");
+return false;
+}
+
+/* validar el nivel de educacion */
+if(document.getElementById('nivel').value == '' )
+{
+    alert("el campo nivel de educacion esta vacio");
+return false;
+}
+
+/* validar el correo electronico */
+var expresion = /^[a-z][\w.-]+@\w[\w.-]+\.[\w.-]*[a-z][a-z]$/i;
+var email = document.getElementById('correo').value;
+if (!expresion.test(email))
+{
+    alert("el campo email no tiene el formato correcto");
+    return false;
+}
+
+/* validar el mensaje de coctacto */
+if(document.getElementById('mensaje').value == '' )
+{
+    alert("el campo mensaje esta vacio");
+    return false;
+
+}
+
+/* VALIDAR QUE SEA MAYOR DE EDAD*/
+
+
+var fecha=document.getElementById('fecha_nac').value;
+
+
+    var hoy = new Date();
+    var cumpleanos = new Date(fecha);
+    var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+    var m = hoy.getMonth() - cumpleanos.getMonth();
+
+    if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+        edad--;
+    }
+
+if(edad < 18)
+{alert("usted es menor de edad");
+return false;}
+
+/* VALIDAR QUE MENSAJE NOP TENGA MENOS DE 10 CARACTERES*/
+
+
+var caracteres=document.getElementById('mensaje').value;
+var cont=(caracteres.length);
+
+if (cont < 10)
+	{ alert("el mesaje debe tener mas de 10 caracteres");
+
+return false;}
+}
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
